@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khwaja Garib Nawaz Markaz</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./images/mosque.png" type="image/x-icon">
@@ -18,7 +17,7 @@
     <nav class="navbar fixed-top" id="top">
         <div class="container-fluid d-flex flex-column flex-sm-row">
             <a class="navbar-brand" href="index.html">
-                <img src="./images/mosque.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+                <img src="./images/mosque.png" alt="Logo" width="50" height="50">
                 <span class="logo-text">Masajids</span>
             </a>
             <div>
@@ -28,6 +27,7 @@
         </div>
     </nav>
 
+    <!-- Password Overlay -->
     <div id="password-overlay"
         class="position-fixed w-100 h-100 bg-dark text-white d-flex flex-column justify-content-center align-items-center"
         style="z-index:9999;">
@@ -40,15 +40,15 @@
         </form>
     </div>
 
-
-
     <!-- Salah Form -->
     <div class="container pt-5 mt-5">
         <h2 class="text-center mb-4">Daily Salah Times</h2>
+
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="text-center flex-grow-1">Update Salah Times</h2>
+
             <select id="mosque-selector" class="form-control w-auto ml-3">
-                <option value="kgn">Select Masjid</option>
+                <option value="">Select Masjid</option>
                 <option value="kgn">Khwaja Garib Nawaz Markaz</option>
                 <option value="fr">Faiz-E-Raza</option>
                 <option value="j">Jiwani</option>
@@ -58,7 +58,7 @@
 
         <form id="salah-form">
             <table class="table table-bordered table-striped text-center">
-                <thead class="table-custom">
+                <thead>
                     <tr>
                         <th>Salaah</th>
                         <th>Adhan</th>
@@ -66,36 +66,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Fajr</td>
-                        <td><input type="time" name="Fajr_Adhan" class="form-control"></td>
-                        <td><input type="time" name="Fajr_Iqamah" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>Zuhr</td>
-                        <td><input type="time" name="Zuhr_Adhan" class="form-control"></td>
-                        <td><input type="time" name="Zuhr_Iqamah" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>Asr</td>
-                        <td><input type="time" name="Asr_Adhan" class="form-control"></td>
-                        <td><input type="time" name="Asr_Iqamah" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>Maghrib</td>
-                        <td><input type="time" name="Maghrib_Adhan" class="form-control"></td>
-                        <td><input type="time" name="Maghrib_Iqamah" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>Esha</td>
-                        <td><input type="time" name="Esha_Adhan" class="form-control"></td>
-                        <td><input type="time" name="Esha_Iqamah" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>Jummah</td>
-                        <td><input type="time" name="Jummah_Adhan" class="form-control"></td>
-                        <td><input type="time" name="Jummah_Iqamah" class="form-control"></td>
-                    </tr>
+                    <tr><td>Fajr</td><td><input type="time" name="Fajr_Adhan" class="form-control"></td><td><input type="time" name="Fajr_Iqamah" class="form-control"></td></tr>
+                    <tr><td>Zuhr</td><td><input type="time" name="Zuhr_Adhan" class="form-control"></td><td><input type="time" name="Zuhr_Iqamah" class="form-control"></td></tr>
+                    <tr><td>Asr</td><td><input type="time" name="Asr_Adhan" class="form-control"></td><td><input type="time" name="Asr_Iqamah" class="form-control"></td></tr>
+                    <tr><td>Maghrib</td><td><input type="time" name="Maghrib_Adhan" class="form-control"></td><td><input type="time" name="Maghrib_Iqamah" class="form-control"></td></tr>
+                    <tr><td>Esha</td><td><input type="time" name="Esha_Adhan" class="form-control"></td><td><input type="time" name="Esha_Iqamah" class="form-control"></td></tr>
+                    <tr><td>Jummah</td><td><input type="time" name="Jummah_Adhan" class="form-control"></td><td><input type="time" name="Jummah_Iqamah" class="form-control"></td></tr>
                 </tbody>
             </table>
 
@@ -105,103 +81,63 @@
         </form>
     </div>
 
-    <!-- Validation Script -->
-    <script>
-        document.getElementById("salah-form").addEventListener("submit", function (e) {
-            e.preventDefault();
-            const form = e.target;
-            const errors = [];
-
-            function checkTime(name, minHour, maxHour) {
-                const value = form[name].value;
-                if (value) {
-                    const hour = parseInt(value.split(":")[0]);
-                    if (hour < minHour || hour > maxHour) {
-                        errors.push(name + " is out of range");
-                    }
-                }
-            }
-
-            checkTime("Fajr_Adhan", 3, 8);
-            checkTime("Fajr_Iqamah", 3, 8);
-            checkTime("Zuhr_Adhan", 12, 15);
-            checkTime("Zuhr_Iqamah", 12, 15);
-            checkTime("Asr_Adhan", 15, 19);
-            checkTime("Asr_Iqamah", 15, 19);
-            checkTime("Maghrib_Adhan", 16, 21);
-            checkTime("Maghrib_Iqamah", 16, 21);
-            checkTime("Esha_Adhan", 18, 23);
-            checkTime("Esha_Iqamah", 18, 23);
-            checkTime("Jummah_Adhan", 12, 15);
-            checkTime("Jummah_Iqamah", 12, 15);
-
-            if (errors.length > 0) {
-                alert("Please correct the following:\n" + errors.join("\n"));
-            } else {
-                alert("Times saved successfully.");
-                // You can now send data to a server or save to file
-            }
-        });
-    </script>
-
+    <!-- Password Script -->
     <script>
         const correctPassword = "masjid786";
-
         document.getElementById("password-form").addEventListener("submit", function (e) {
             e.preventDefault();
-            const input = document.getElementById("password-input").value;
-            const errorMsg = document.getElementById("error-msg");
-
-            if (input === correctPassword) {
-                const overlay = document.getElementById("password-overlay");
-                overlay.style.visibility = "hidden";
-                overlay.style.opacity = "0";
-                overlay.style.pointerEvents = "none";
+            if (document.getElementById("password-input").value === correctPassword) {
+                document.getElementById("password-overlay").style.display = "none";
             } else {
-                errorMsg.textContent = "Incorrect password. Please try again.";
+                document.getElementById("error-msg").textContent = "Incorrect password.";
             }
         });
     </script>
 
+    <!-- Load Times from API -->
     <script>
-        const mosqueMap = {
-            kgn: "kgn.html",
-            fr: "fr.html",
-            j: "j.html",
-            sb: "sb.html"
-        };
-
         document.getElementById("mosque-selector").addEventListener("change", async function () {
-            const mosqueKey = this.value;
-            const file = mosqueMap[mosqueKey];
+            const mosque = this.value;
+            if (!mosque) return;
 
             try {
-                const response = await fetch(file);
-                const text = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, "text/html");
+                const resp = await fetch(`https://al-masajids.vercel.app/api/get-times?mosque=${mosque}`);
+                const data = await resp.json();
 
-                const rows = doc.querySelectorAll("table tbody tr");
-                const updateRows = document.querySelectorAll("#salah-form table tbody tr");
+                const form = document.getElementById("salah-form");
 
-                rows.forEach((row, i) => {
-                    const cells = row.querySelectorAll("td");
-                    if (cells.length === 3) {
-                        updateRows[i].querySelectorAll("input")[0].value = cells[1].textContent.trim();
-                        updateRows[i].querySelectorAll("input")[1].value = cells[2].textContent.trim();
-                    }
-                });
+                form["Fajr_Adhan"].value = data.Fajr?.Adhan || "";
+                form["Fajr_Iqamah"].value = data.Fajr?.Iqamah || "";
+
+                form["Zuhr_Adhan"].value = data.Zuhr?.Adhan || "";
+                form["Zuhr_Iqamah"].value = data.Zuhr?.Iqamah || "";
+
+                form["Asr_Adhan"].value = data.Asr?.Adhan || "";
+                form["Asr_Iqamah"].value = data.Asr?.Iqamah || "";
+
+                form["Maghrib_Adhan"].value = data.Maghrib?.Adhan || "";
+                form["Maghrib_Iqamah"].value = data.Maghrib?.Iqamah || "";
+
+                form["Esha_Adhan"].value = data.Esha?.Adhan || "";
+                form["Esha_Iqamah"].value = data.Esha?.Iqamah || "";
+
+                form["Jummah_Adhan"].value = data.Jummah?.Adhan || "";
+                form["Jummah_Iqamah"].value = data.Jummah?.Iqamah || "";
+
             } catch (err) {
-                alert("Failed to load mosque data.");
+                alert("Failed to load current times.");
             }
         });
     </script>
 
+    <!-- Update Times -->
     <script>
         document.getElementById("salah-form").addEventListener("submit", async function (e) {
             e.preventDefault();
 
             const mosque = document.getElementById("mosque-selector").value;
+            if (!mosque) return alert("Please select a masjid first.");
+
             const form = e.target;
 
             const payload = {
@@ -216,7 +152,7 @@
                 }
             };
 
-            const resp = await fetch("https://sunni-masajids.vercel.app/api/update-times", {
+            const resp = await fetch("https://al-masajids.vercel.app/api/update-times", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -225,34 +161,9 @@
                 body: JSON.stringify(payload)
             });
 
-            if (resp.ok) alert("Times updated successfully!");
-            else alert("Update failed");
+            resp.ok ? alert("Times updated successfully!") : alert("Update failed.");
         });
     </script>
 
-
-
-    <!-- Footer -->
-    <footer class="text-white mt-5 py-3" style="background-color: #007848;">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-shield-fill-check me-2"></i>
-                &copy; 2025 Ubaid Kagdi. All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-
 </body>
-
 </html>
