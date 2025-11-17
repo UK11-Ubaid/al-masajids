@@ -1,0 +1,85 @@
+.navbar{
+    background-color: #007848;
+}
+
+.logo-text{
+    display: inline-block;
+    transform: translateY(10px);
+    margin-left: 10px;
+    color: white;
+}
+
+.btn{
+    color: white;
+}
+
+#carouselExampleSlidesOnly .carousel-item img {
+  height: 80vh;        
+  object-fit: cover;
+}
+
+
+.carousel-caption {
+  bottom: 20%; /* move text up */
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent dark background for readability */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.stat-box {
+  background-color: #007848; /* lighter gray */
+  border-radius: 10px;       /* rounded corners */
+  padding: 20px 10px;        /* space inside each box */
+  margin-bottom: 15px;       /* spacing for mobile stacking */
+  transition: #01df01 0.3s ease, transform 0.3s ease;
+  color: white;
+}
+
+.stat-box:hover {
+  background-color: #01df01; /* subtle hover effect */
+  transform: translateY(-3px);
+}
+
+.stat-box h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-box p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.table-custom{
+    background-color: #007848 !important; /* your custom green color */
+    color: white;
+}
+
+/* Hover effect for the card */
+.mosque-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mosque-card:hover {
+  transform: translateY(-5px); /* slight lift */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* stronger shadow */
+}
+
+/* Make images smaller on phones */
+@media (max-width: 576px) {
+  .mosque-img {
+    width: 50%; /* smaller image on small screens */
+    height: 50%;
+    margin: 0 auto 15px; /* center image with bottom spacing */
+  }
+}
+
+.muezzin-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.muezzin-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

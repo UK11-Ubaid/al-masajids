@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="./images/mosque.png" rel="icon" type="image/x-icon"/>
+<title>Masajids</title>
+</head>
+<body>
+<!-- navigation bar -->
+<nav class="navbar fixed-top">
+<div class="container-fluid d-flex flex-column flex-sm-row">
+<a class="navbar-brand" href="#">
+<img alt="Logo" class="d-inline-block align-text-top" height="50" src="./images/mosque.png" width="50"/>
+<span class="logo-text">Masajids</span>
+</a>
+<div>
+<button class="btn btn-outline-success me-2" onclick="location.href='donate.html'" type="button">Donate
+                    US</button>
+<button class="btn btn-outline-success me-2" onclick="location.href='update_salah_times.html'" type="button">Update Time</button>
+</div>
+</div>
+</nav>
+<!-- Carousel -->
+<div class="carousel slide" data-ride="carousel" id="carouselExampleSlidesOnly">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="First slide" class="d-block w-100" src="./images/main.jpg"/>
+<div class="carousel-caption text-start">
+<h2 class="fw-bold">Discover Masjids Near You</h2>
+<p>Find the nearest masjid in your city instantly.</p>
+<a class="btn btn-success" href="#near-mosques">Find Masjid</a>
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Second slide" class="d-block w-100" src="./images/main2.jpg"/>
+<div class="carousel-caption text-start">
+<h2 class="fw-bold">Find Prayer Times Instantly</h2>
+<p>Get accurate prayer times for every masjid.</p>
+<!-- <a href="#" class="btn btn-success">View Prayer Times</a> -->
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Third slide" class="d-block w-100" src="./images/main3.jpg"/>
+<div class="carousel-caption text-start">
+<h2 class="fw-bold">Connecting the Community</h2>
+<p>Join thousands of worshippers near you.</p>
+<!-- <a href="#" class="btn btn-success">Get Started</a> -->
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Third slide" class="d-block w-100" src="./images/main4.jpg"/>
+<div class="carousel-caption text-start">
+<h2 class="fw-bold">Educate the Community</h2>
+<p>Join our Madressa for Hifz, Quran, and Hadith classes.</p>
+<!-- <a href="#" class="btn btn-success">Get Started</a> -->
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Third slide" class="d-block w-100" src="./images/main5.jpg"/>
+</div>
+</div>
+</div>
+<!-- Overall masjids and musallis and Imams -->
+<div class="container text-center mt-4 overview">
+<div class="row justify-content-center">
+<div class="col-md-3 stat-box mx-2">
+<h3>4</h3>
+<p>Masajids</p>
+</div>
+<div class="col-md-3 stat-box mx-2">
+<h3>25</h3>
+<p>Imams</p>
+</div>
+<div class="col-md-3 stat-box mx-2">
+<h3>50,000+</h3>
+<p>Musallis</p>
+</div>
+</div>
+</div>
+<!-- Namaz times General JHB -->
+<div class="container mt-5">
+<h2 class="text-center mb-4">Daily Namaz Starting Times (JHB)</h2>
+<div class="text-center text-muted mb-4">
+<span id="prayer-date">Mon 17/11/2025</span>
+</div>
+<table class="table table-bordered table-striped text-center">
+<thead class="table-custom">
+<tr>
+<th>Salaah</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sehri Ends</td>
+<td>03:39</td>
+</tr>
+<tr>
+<td>Subuh Sadik </td>
+<td>03:44</td>
+</tr>
+<tr>
+<td>Fajr</td>
+<td>03:44</td>
+</tr>
+<tr>
+<td>Sunrise</td>
+<td>05:10</td>
+</tr>
+<tr>
+<td>Ishraaq</td>
+<td>05:25</td>
+</tr>
+<tr>
+<td>Chast</td>
+<td>08:32</td>
+</tr>
+<tr>
+<td>Zawal</td>
+<td>11:53</td>
+</tr>
+<tr>
+<td>Zuhr</td>
+<td>11:58</td>
+</tr>
+<tr>
+<td>Asr Shafi</td>
+<td>15:21</td>
+</tr>
+<tr>
+<td>Asr Hanafi</td>
+<td>16:35</td>
+</tr>
+<tr>
+<td>Sunset</td>
+<td>18:36</td>
+</tr>
+<tr>
+<td>Maghrib</td>
+<td>18:39</td>
+</tr>
+<tr>
+<td>Esha</td>
+<td>20:01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- List of masjids -->
+<div class="container my-5">
+<!-- Centered Heading -->
+<h2 class="text-center mb-4" id="near-mosques">Mosques</h2>
+<!-- First card -->
+<div class="row justify-content-center mb-4">
+<div class="col-md-10 col-lg-8">
+<a class="text-decoration-none text-dark" href="kgn.html">
+<div class="row align-items-center border border-2 rounded-3 p-4 shadow-sm bg-white mosque-card">
+<div class="col-md-3 text-center">
+<img alt="Mosque Image" class="img-fluid rounded" src="./images/kgn_logo.png"/>
+</div>
+<div class="col-md-9">
+<h3 class="fw-bold mb-2">Khwaja Garib Nawaz Markaz</h3>
+<p class="mb-0">
+<i class="bi bi-geo-alt-fill text-success me-2"></i>
+<span>29 Commissioner St, Ferreiras Dorp, Johannesburg, 2048</span>
+</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Second card -->
+<div class="row justify-content-center mb-4">
+<div class="col-md-10 col-lg-8">
+<a class="text-decoration-none text-dark" href="j.html">
+<div class="row align-items-center border border-2 rounded-3 p-4 shadow-sm bg-white mosque-card">
+<div class="col-md-3 text-center">
+<img alt="Mosque Image" class="img-fluid rounded" src="./images/j_logo.jpg"/>
+</div>
+<div class="col-md-9">
+<h3 class="fw-bold mb-2">Jiwani Masjid</h3>
+<p class="mb-0">
+<i class="bi bi-geo-alt-fill text-success me-2"></i>
+<span>8 Luttig St, Fordsburg, Johannesburg, 2000</span>
+</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Third card -->
+<div class="row justify-content-center mb-4">
+<div class="col-md-10 col-lg-8">
+<a class="text-decoration-none text-dark" href="fr.html">
+<div class="row align-items-center border border-2 rounded-3 p-4 shadow-sm bg-white mosque-card">
+<div class="col-md-3 text-center">
+<img alt="Mosque Image" class="img-fluid rounded" src="./images/fr_logo.png"/>
+</div>
+<div class="col-md-9">
+<h3 class="fw-bold mb-2">Faiz-e-Raza Masjid</h3>
+<p class="mb-0">
+<i class="bi bi-geo-alt-fill text-success me-2"></i>
+<span>34 Commercial Rd, Fordsburg, Johannesburg, 2033</span>
+</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Fourth Card -->
+<div class="row justify-content-center mb-4">
+<div class="col-md-10 col-lg-8">
+<a class="text-decoration-none text-dark" href="sb.html">
+<div class="row align-items-center border border-2 rounded-3 p-4 shadow-sm bg-white mosque-card">
+<div class="col-md-3 text-center">
+<img alt="Mosque Image" class="img-fluid rounded" src="./images/sb_logo.jpg"/>
+</div>
+<div class="col-md-9">
+<h3 class="fw-bold mb-2">Sultan Bahu Masjid</h3>
+<p class="mb-0">
+<i class="bi bi-geo-alt-fill text-success me-2"></i>
+<span>41 4th Ave, Mayfair, Johannesburg, 2108</span>
+</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="text-white mt-5 py-3" style="background-color: #007848;">
+<div class="container text-center">
+<p class="mb-0">
+<i class="bi bi-shield-fill-check me-2"></i>
+                © 2025 Ubaid Kagdi. All rights reserved.
+            </p>
+</div>
+</footer>
+<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

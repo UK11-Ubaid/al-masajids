@@ -1,0 +1,38 @@
+{
+  "kgn": {
+    "name": "Khwaja Garib Nawaz Markaz",
+    "Fajr": {"Adhan": "03:53", "Iqamah": "03:53"},
+    "Zuhr": {"Adhan": "11:56", "Iqamah": "12:00"},
+    "Asr": {"Adhan": "16:31", "Iqamah": "16:31"},
+    "Maghrib": {"Adhan": "18:30", "Iqamah": "18:30"},
+    "Esha": {"Adhan": "19:50", "Iqamah": "19:50"},
+    "Jummah": {"Adhan": "13:00", "Iqamah": "13:30"}
+  },
+  "fr": {
+    "name": "Faiz-E-Raza",
+    "Fajr": {"Adhan": "", "Iqamah": ""},
+    "Zuhr": {"Adhan": "", "Iqamah": ""},
+    "Asr": {"Adhan": "", "Iqamah": ""},
+    "Maghrib": {"Adhan": "", "Iqamah": ""},
+    "Esha": {"Adhan": "", "Iqamah": ""},
+    "Jummah": {"Adhan": "", "Iqamah": ""}
+  },
+  "j": {
+    "name": "Jiwani",
+    "Fajr": {"Adhan": "", "Iqamah": ""},
+    "Zuhr": {"Adhan": "", "Iqamah": ""},
+    "Asr": {"Adhan": "", "Iqamah": ""},
+    "Maghrib": {"Adhan": "", "Iqamah": ""},
+    "Esha": {"Adhan": "", "Iqamah": ""},
+    "Jummah": {"Adhan": "", "Iqamah": ""}
+  },
+  "sb": {
+    "name": "Sultan Bahu",
+    "Fajr": {"Adhan": "", "Iqamah": ""},
+    "Zuhr": {"Adhan": "", "Iqamah": ""},
+    "Asr": {"Adhan": "", "Iqamah": ""},
+    "Maghrib": {"Adhan": "", "Iqamah": ""},
+    "Esha": {"Adhan": "", "Iqamah": ""},
+    "Jummah": {"Adhan": "", "Iqamah": ""}
+  }
+}
