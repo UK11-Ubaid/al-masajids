@@ -87,7 +87,10 @@
         document.getElementById("password-form").addEventListener("submit", function (e) {
             e.preventDefault();
             if (document.getElementById("password-input").value === correctPassword) {
-                document.getElementById("password-overlay").style.display = "none";
+                const overlay = document.getElementById("password-overlay");
+                overlay.style.visibility = "hidden";
+                overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "none";
             } else {
                 document.getElementById("error-msg").textContent = "Incorrect password.";
             }
