@@ -132,7 +132,7 @@
     </div>
 
     <script>
-        fetch("https://sunni-masajids.vercel.app/api/salah?mosque=kgn")
+        fetch("https://al-masajids.vercel.app/api/get-times?mosque=kgn")
             .then(res => res.json())
             .then(data => {
                 const salah = data["kgn"];
