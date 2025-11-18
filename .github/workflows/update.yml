@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Gives the action permission to push commits
+  contents: write  # Needed for pushing commits
 
 jobs:
   update:
@@ -14,7 +14,10 @@ jobs:
 
     steps:
       - name: Checkout repo
+      # IMPORTANT FIX → Get full git history so push works
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -23,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install beautifulsoup4 selenium
+          pip install beautifulsoup4 selenium webdriver-manager
 
       - name: Run scraper
         run: python scrape_namaz_times.py
@@ -32,6 +35,10 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
+          # Pull latest remote changes BEFORE pushing
+          git pull --rebase origin main
+
           git add index.html
           git commit -m "Update prayer times" || echo "No changes to commit"
-          git push
+          git push origin main
