@@ -72,6 +72,7 @@
                     <tr><td>Maghrib</td><td><input type="time" name="Maghrib_Adhan" class="form-control"></td><td><input type="time" name="Maghrib_Iqamah" class="form-control"></td></tr>
                     <tr><td>Esha</td><td><input type="time" name="Esha_Adhan" class="form-control"></td><td><input type="time" name="Esha_Iqamah" class="form-control"></td></tr>
                     <tr><td>Jummah</td><td><input type="time" name="Jummah_Adhan" class="form-control"></td><td><input type="time" name="Jummah_Iqamah" class="form-control"></td></tr>
+                    <tr><td>Zuhr (Sunday)</td><td><input type="time" name="zsunday_Adhan" class="form-control"></td><td><input type="time" name="zsunday_Iqamah" class="form-control"></td></tr>
                 </tbody>
             </table>
 
@@ -127,6 +128,9 @@
                 form["Jummah_Adhan"].value = data.Jummah?.Adhan || "";
                 form["Jummah_Iqamah"].value = data.Jummah?.Iqamah || "";
 
+                form["zsunday_Adhan"].value = data.zsunday?.Adhan || "";
+                form["zsunday_Iqamah"].value = data.zsunday?.Iqamah || "";
+
             } catch (err) {
                 alert("Failed to load current times.");
             }
@@ -152,6 +156,7 @@
                     Maghrib: { Adhan: form["Maghrib_Adhan"].value, Iqamah: form["Maghrib_Iqamah"].value },
                     Esha: { Adhan: form["Esha_Adhan"].value, Iqamah: form["Esha_Iqamah"].value },
                     Jummah: { Adhan: form["Jummah_Adhan"].value, Iqamah: form["Jummah_Iqamah"].value }
+                    "Zuhr (Sunday)": { Adhan: form["zsunday_Adhan"].value, Iqamah: form["zsunday_Iqamah"].value }
                 }
             };
 
