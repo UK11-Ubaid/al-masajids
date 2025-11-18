@@ -24,7 +24,10 @@ export default async function handler(req, res) {
     const content = Buffer.from(fileJson.content, "base64").toString("utf8");
     const data = JSON.parse(content);
 
-    data[mosque] = times;
+    data[mosque] = {
+      name: data[mosque].name,    
+      ...times                    
+    };
 
     const updatedContent = Buffer.from(JSON.stringify(data, null, 2)).toString("base64");
 
