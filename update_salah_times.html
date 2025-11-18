@@ -128,8 +128,9 @@
                 form["Jummah_Adhan"].value = data.Jummah?.Adhan || "";
                 form["Jummah_Iqamah"].value = data.Jummah?.Iqamah || "";
 
-                form["zsunday_Adhan"].value = data.zsunday?.Adhan || "";
-                form["zsunday_Iqamah"].value = data.zsunday?.Iqamah || "";
+                form["zsunday_Adhan"].value = data["Zuhr (Sunday)"]?.Adhan || "";
+                form["zsunday_Iqamah"].value = data["Zuhr (Sunday)"]?.Iqamah || "";
+
 
             } catch (err) {
                 alert("Failed to load current times.");
@@ -155,7 +156,7 @@
                     Asr: { Adhan: form["Asr_Adhan"].value, Iqamah: form["Asr_Iqamah"].value },
                     Maghrib: { Adhan: form["Maghrib_Adhan"].value, Iqamah: form["Maghrib_Iqamah"].value },
                     Esha: { Adhan: form["Esha_Adhan"].value, Iqamah: form["Esha_Iqamah"].value },
-                    Jummah: { Adhan: form["Jummah_Adhan"].value, Iqamah: form["Jummah_Iqamah"].value }
+                    Jummah: { Adhan: form["Jummah_Adhan"].value, Iqamah: form["Jummah_Iqamah"].value },
                     "Zuhr (Sunday)": { Adhan: form["zsunday_Adhan"].value, Iqamah: form["zsunday_Iqamah"].value }
                 }
             };
