@@ -1,4 +1,4 @@
-name: Update Daily Prayer Times
+name: Update Islamic Date
 
 on:
   schedule:
