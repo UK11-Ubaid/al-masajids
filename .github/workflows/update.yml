@@ -1,4 +1,4 @@
-name: Update Daily Prayer Times
+name: Update Daily Prayer Times and English Date
 
 on:
   schedule:
@@ -33,5 +33,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add index.html
-          git commit -m "Update prayer times" || echo "No changes to commit"
+          git commit -m "Updated daily prayer times and english date" || echo "No changes to commit"
           git push
