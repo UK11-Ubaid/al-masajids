@@ -36,9 +36,10 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          # Pull latest remote changes BEFORE pushing
-          git pull --rebase origin main
+          # Pull latest changes with rebase and handle errors
+          git pull --rebase origin main || exit 1
 
           git add index.html
           git commit -m "Update prayer times" || echo "No changes to commit"
           git push origin main
+
