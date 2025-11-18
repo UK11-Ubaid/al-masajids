@@ -36,7 +36,7 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="./images/fr1.png" alt="First slide">
+                <img class="d-block w-100" src="./images/kgn.png" alt="First slide">
                 <div class="carousel-caption  text-start">
                     <h2 class="fw-bold">Faiz-e-Raza Masjid</h2>
                     <a href="https://maps.app.goo.gl/qc4wUMV5XJrgmrw98" target="_blank" class="btn btn-success">Take Me
@@ -61,34 +61,40 @@
             <tbody>
                 <tr>
                     <td>Fajr</td>
-                    <td>03:53</td>
-                    <td>03:53</td>
+                    <td id="fajrAdhan"></td>
+                    <td id="fajrIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Zuhr</td>
-                    <td>11:56</td>
-                    <td>12:00</td>
+                    <td id="zuhrAdhan"></td>
+                    <td id="zuhrIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Asr</td>
-                    <td>16:31</td>
-                    <td>16:31</td>
+                    <td id="asrAdhan"></td>
+                    <td id="asrIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Maghrib</td>
-                    <td>18:30</td>
-                    <td>18:30</td>
+                    <td id="maghribAdhan"></td>
+                    <td id="maghribIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Esha</td>
-                    <td>19:50</td>
-                    <td>19:50</td>
+                    <td id="eshaAdhan"></td>
+                    <td id="eshaIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Jummah</td>
-                    <td>19:50</td>
-                    <td>19:50</td>
+                    <td id="jummahAdhan"></td>
+                    <td id="jummahIqamah"></td>
                 </tr>
+
 
             </tbody>
         </table>
@@ -134,7 +140,24 @@
         </div>
     </div>
 
-    
+    <script>
+        fetch("https://al-masajids.vercel.app/api/get-times?mosque=fr")
+            .then(res => res.json())
+            .then(salah => {
+                const rows = document.querySelectorAll("tbody tr");
+                const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah"];
+
+                names.forEach((name, i) => {
+                    rows[i].children[1].textContent = salah[name].Adhan;
+                    rows[i].children[2].textContent = salah[name].Iqamah;
+                });
+            })
+            .catch(err => console.error("Error loading times:", err));
+    </script>
+
+
+
+
     <!-- Footer -->
     <footer class="text-white mt-5 py-3" style="background-color: #007848;">
         <div class="container text-center">

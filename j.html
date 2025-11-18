@@ -61,34 +61,40 @@
             <tbody>
                 <tr>
                     <td>Fajr</td>
-                    <td>03:53</td>
-                    <td>03:53</td>
+                    <td id="fajrAdhan"></td>
+                    <td id="fajrIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Zuhr</td>
-                    <td>11:56</td>
-                    <td>12:00</td>
+                    <td id="zuhrAdhan"></td>
+                    <td id="zuhrIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Asr</td>
-                    <td>16:31</td>
-                    <td>16:31</td>
+                    <td id="asrAdhan"></td>
+                    <td id="asrIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Maghrib</td>
-                    <td>18:30</td>
-                    <td>18:30</td>
+                    <td id="maghribAdhan"></td>
+                    <td id="maghribIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Esha</td>
-                    <td>19:50</td>
-                    <td>19:50</td>
+                    <td id="eshaAdhan"></td>
+                    <td id="eshaIqamah"></td>
                 </tr>
+
                 <tr>
                     <td>Jummah</td>
-                    <td>19:50</td>
-                    <td>19:50</td>
+                    <td id="jummahAdhan"></td>
+                    <td id="jummahIqamah"></td>
                 </tr>
+
 
             </tbody>
         </table>
@@ -127,12 +133,29 @@
             <div class="card muezzin-card" style="width: 18rem;">
                 <img class="card-img-top" src="./images/muezzin.png" alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text fw-bold">Shaikh Badri</p>
-                    <p class="card-text">083 387 1335</p>
+                    <p class="card-text fw-bold">Shaikh Idrees</p>
+                    <p class="card-text">083 401 7871</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        fetch("https://al-masajids.vercel.app/api/get-times?mosque=j")
+            .then(res => res.json())
+            .then(salah => {
+                const rows = document.querySelectorAll("tbody tr");
+                const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah"];
+
+                names.forEach((name, i) => {
+                    rows[i].children[1].textContent = salah[name].Adhan;
+                    rows[i].children[2].textContent = salah[name].Iqamah;
+                });
+            })
+            .catch(err => console.error("Error loading times:", err));
+    </script>
+
+
 
 
     <!-- Footer -->
