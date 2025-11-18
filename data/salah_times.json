@@ -95,32 +95,32 @@
   "sb": {
     "name": "Sultan Bahu",
     "Fajr": {
-      "Adhan": "",
-      "Iqamah": ""
+      "Adhan": "04:15",
+      "Iqamah": "04:35"
     },
     "Zuhr": {
-      "Adhan": "",
-      "Iqamah": ""
+      "Adhan": "12:45",
+      "Iqamah": "01:00"
     },
     "Asr": {
-      "Adhan": "",
-      "Iqamah": ""
+      "Adhan": "05:00",
+      "Iqamah": "05:15"
     },
     "Maghrib": {
-      "Adhan": "",
-      "Iqamah": ""
+      "Adhan": "06:45",
+      "Iqamah": "06:45"
     },
     "Esha": {
-      "Adhan": "",
-      "Iqamah": ""
+      "Adhan": "08:00",
+      "Iqamah": "08:15"
     },
     "Jummah": {
-      "Adhan": "",
-      "Iqamah": ""
+      "Adhan": "12:30",
+      "Iqamah": "01:00"
     },
     "Zuhr (Sunday)": {
-      "Adhan": "13:00",
-      "Iqamah": "13:39"
+      "Adhan": "12:30",
+      "Iqamah": "12:45"
     }
   }
 }
