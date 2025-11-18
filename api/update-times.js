@@ -16,21 +16,32 @@ export default async function handler(req, res) {
 
     const fileUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/data/salah_times.json?ref=${BRANCH}`;
 
+    // --- GET THE FILE ---
     const fileResp = await fetch(fileUrl, {
       headers: { Authorization: `token ${TOKEN}` }
     });
+
     const fileJson = await fileResp.json();
+
+    if (!fileResp.ok) {
+      return res.status(500).json({
+        error: "GitHub GET failed",
+        details: fileJson
+      });
+    }
 
     const content = Buffer.from(fileJson.content, "base64").toString("utf8");
     const data = JSON.parse(content);
 
+    // --- APPLY UPDATE ---
     data[mosque] = {
-      name: data[mosque].name,    
-      ...times                    
+      name: data[mosque].name,
+      ...times
     };
 
     const updatedContent = Buffer.from(JSON.stringify(data, null, 2)).toString("base64");
 
+    // --- PUT UPDATE WITH FULL DEBUG LOGS ---
     const updateResp = await fetch(fileUrl, {
       method: "PUT",
       headers: {
@@ -45,8 +56,23 @@ export default async function handler(req, res) {
       })
     });
 
-    res.json({ success: true });
+    const updateJson = await updateResp.json();
+
+    console.log("GitHub PUT status:", updateResp.status);
+    console.log("GitHub PUT response:", updateJson);
+
+    // Error from GitHub?
+    if (!updateResp.ok) {
+      return res.status(500).json({
+        error: "GitHub update failed",
+        details: updateJson
+      });
+    }
+
+    // SUCCESS
+    return res.json({ success: true });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 }
