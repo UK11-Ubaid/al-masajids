@@ -2,7 +2,7 @@ name: Update Islamic Date
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # Runs everyday at 4am SAST
+    - cron: '0 1 * * *'  # Runs everyday at 4am SAST
   workflow_dispatch:
 
 permissions:
@@ -33,5 +33,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add index.html
-          git commit -m "Update prayer times" || echo "No changes to commit"
+          git commit -m "Updated islamid date" || echo "No changes to commit"
           git push
