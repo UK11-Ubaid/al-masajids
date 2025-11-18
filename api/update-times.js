@@ -12,40 +12,43 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: "Unauthorized" });
 
     const { mosque, times } = req.body;
-    if (!mosque || !times) return res.status(400).json({ error: "Missing data" });
+    if (!mosque || !times) 
+      return res.status(400).json({ error: "Missing data" });
 
-    const fileUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/data/salah_times.json?ref=${BRANCH}`;
+    // ────────────────────────────────
+    // 1. GET CURRENT FILE FROM GITHUB
+    // ────────────────────────────────
+    const fileUrl =
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/data/salah_times.json?ref=${BRANCH}`;
 
-    // --- GET THE FILE ---
     const fileResp = await fetch(fileUrl, {
-      headers: { Authorization: `token ${TOKEN}` }
+      headers: { Authorization: `Bearer ${TOKEN}` }
     });
 
     const fileJson = await fileResp.json();
 
-    if (!fileResp.ok) {
-      return res.status(500).json({
-        error: "GitHub GET failed",
-        details: fileJson
-      });
-    }
-
     const content = Buffer.from(fileJson.content, "base64").toString("utf8");
     const data = JSON.parse(content);
 
-    // --- APPLY UPDATE ---
+    // ────────────────────────────────
+    // 2. UPDATE ONLY THIS MOSQUE
+    // ────────────────────────────────
     data[mosque] = {
-      name: data[mosque].name,
+      name: data[mosque].name, 
       ...times
     };
 
-    const updatedContent = Buffer.from(JSON.stringify(data, null, 2)).toString("base64");
+    const updatedContent = Buffer
+      .from(JSON.stringify(data, null, 2))
+      .toString("base64");
 
-    // --- PUT UPDATE WITH FULL DEBUG LOGS ---
+    // ────────────────────────────────
+    // 3. PUT UPDATED FILE BACK TO GITHUB
+    // ────────────────────────────────
     const updateResp = await fetch(fileUrl, {
       method: "PUT",
       headers: {
-        Authorization: `token ${TOKEN}`,
+        Authorization: `Bearer ${TOKEN}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -61,15 +64,16 @@ export default async function handler(req, res) {
     console.log("GitHub PUT status:", updateResp.status);
     console.log("GitHub PUT response:", updateJson);
 
-    // Error from GitHub?
     if (!updateResp.ok) {
-      return res.status(500).json({
-        error: "GitHub update failed",
-        details: updateJson
+      return res.status(500).json({ 
+        error: "GitHub update failed", 
+        details: updateJson 
       });
     }
 
-    // SUCCESS
+    // ────────────────────────────────
+    // 4. SUCCESS
+    // ────────────────────────────────
     return res.json({ success: true });
 
   } catch (err) {
