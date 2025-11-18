@@ -141,8 +141,8 @@
                 const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah"];
 
                 names.forEach((name, i) => {
-                    rows[i].children[1].textContent = salah[name].adhan;
-                    rows[i].children[2].textContent = salah[name].iqamah;
+                    rows[i].children[1].textContent = salah[name].Adhan;
+                    rows[i].children[2].textContent = salah[name].Iqamah;
                 });
             })
             .catch(err => console.error("Error loading times:", err));
