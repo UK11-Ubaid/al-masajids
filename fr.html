@@ -95,6 +95,11 @@
                     <td id="jummahIqamah"></td>
                 </tr>
 
+                <tr>
+                    <td>Zuhr (Sunday)</td>
+                    <td id="zsundayAdhan"></td>
+                    <td id="zsundayIqamah"></td>
+                </tr>
 
             </tbody>
         </table>
@@ -145,7 +150,7 @@
             .then(res => res.json())
             .then(salah => {
                 const rows = document.querySelectorAll("tbody tr");
-                const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah"];
+                const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah", "Zuhr (Sunday)"];
 
                 names.forEach((name, i) => {
                     rows[i].children[1].textContent = salah[name].Adhan;
