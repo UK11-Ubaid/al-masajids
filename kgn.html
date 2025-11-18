@@ -132,21 +132,20 @@
     </div>
 
     <script>
-        fetch("https://al-masajids.vercel.app/api/get-times?mosque=kgn")
-            .then(res => res.json())
-            .then(data => {
-                const salah = data["kgn"];
+    fetch("https://al-masajids.vercel.app/api/get-times?mosque=kgn")
+        .then(res => res.json())
+        .then(salah => {
+            const rows = document.querySelectorAll("tbody tr");
+            const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah"];
 
-                const rows = document.querySelectorAll("tbody tr");
-                const names = ["Fajr", "Zuhr", "Asr", "Maghrib", "Esha", "Jummah"];
+            names.forEach((name, i) => {
+                rows[i].children[1].textContent = salah[name].Adhan;
+                rows[i].children[2].textContent = salah[name].Iqamah;
+            });
+        })
+        .catch(err => console.error("Error loading times:", err));
+</script>
 
-                names.forEach((name, i) => {
-                    rows[i].children[1].textContent = salah[name].Adhan;
-                    rows[i].children[2].textContent = salah[name].Iqamah;
-                });
-            })
-            .catch(err => console.error("Error loading times:", err));
-    </script>
 
 
 
