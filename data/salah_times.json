@@ -33,8 +33,8 @@
   "fr": {
     "name": "Faiz-E-Raza",
     "Fajr": {
-      "Adhan": "04:10",
-      "Iqamah": "04:30"
+      "Adhan": "04:30",
+      "Iqamah": "04:50"
     },
     "Zuhr": {
       "Adhan": "12:55",
@@ -49,7 +49,7 @@
       "Iqamah": "19:05"
     },
     "Esha": {
-      "Adhan": "20:25",
+      "Adhan": "20:30",
       "Iqamah": "20:45"
     },
     "Jummah": {
