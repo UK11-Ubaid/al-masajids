@@ -6,7 +6,7 @@ mosque_map = {
     "kgn": "kgn.html",
     "fr": "fr.html",
     "j": "j.html",
-    "sb": "sb.html"
+    "cm": "cm.html"
 }
 
 mosque_key = sys.argv[1]
