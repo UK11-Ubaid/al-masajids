@@ -64,24 +64,24 @@
   "j": {
     "name": "Jiwani",
     "Fajr": {
-      "Adhan": "04:40",
-      "Iqamah": "05:00"
+      "Adhan": "04:50",
+      "Iqamah": "05:05"
     },
     "Zuhr": {
       "Adhan": "12:45",
       "Iqamah": "13:00"
     },
     "Asr": {
-      "Adhan": "17:00",
-      "Iqamah": "17:15"
+      "Adhan": "17:15",
+      "Iqamah": "17:30"
     },
     "Maghrib": {
-      "Adhan": "18:52",
-      "Iqamah": "18:54"
+      "Adhan": "18:40",
+      "Iqamah": "18:50"
     },
     "Esha": {
-      "Adhan": "20:15",
-      "Iqamah": "20:30"
+      "Adhan": "20:05",
+      "Iqamah": "20:15"
     },
     "Jummah": {
       "Adhan": "12:25",
